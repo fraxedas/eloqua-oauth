@@ -1,4 +1,5 @@
 # Oauth 2.0 authentication
+[![Build Status](https://travis-ci.org/fraxedas/eloqua-oauth.svg)](https://travis-ci.org/fraxedas/eloqua-oauth)
 
 # Eloqua configuration
 1. Get an eloqua account and create a provider: http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#Developers/AppCloud/appcloud.htm%3FTocPath%3DAppCloud%2520Development%2520Framework%7C_____0
