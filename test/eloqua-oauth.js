@@ -6,7 +6,7 @@ describe('OAuth 2.0', function(){
     describe('Authorization header', function(){
 
         it('should be bearer', function(){
-            var header = oauth.access_access_header('token');
+            var header = oauth.access_header('token');
             assert.equal(header.Authorization,  'Bearer token');
         });
 
