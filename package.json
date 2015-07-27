@@ -1,0 +1,37 @@
+{
+  "name": "eloqua-oauth",
+  "version": "0.0.1",
+  "description": "Oauth 2.0 oauthentication with Eloqua",
+  "main": "index.js",
+  "author": "Oscar Fraxedas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fraxedas/eloqua-oauth/issues"
+  },
+  "homepage": "https://github.com/fraxedas/eloqua-oauth",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "mocha": "^2.2.1",
+    "should": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fraxedas/eloqua-oauth.git"
+  },
+  "keywords": [
+    "oauth",
+    "eloqua"
+  ],
+  "dependencies": {
+    "qs": "^3.1.0",
+    "request": "^2.57.0"
+  }
+}

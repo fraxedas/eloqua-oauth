@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- 0.10.36
+deploy:
+  provider: npm
+  email: fraxedas@gmail.com
+  api_key:
+    secure: l6c4zm3Tli6BwNjS/i4L5wDZyoq/rRs/bzb3VIkf/ydczTvWAy8EalX4XxlSGs9uMSLq6X4KF1N4Fy41HJHl8cWHIhrdFAJHZkzUFhbOAbVfCamcRgLg5su7x6CtX/ILLZh+uW6ZQIMvBQgCVoC5tvJwNo21eVGzgxDMgBwEK4k=
+  on:
+    tags: false
+    repo: fraxedas/eloqua-oauth
