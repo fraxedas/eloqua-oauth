@@ -1,6 +1,6 @@
-/* global assert */
 /// <reference path="../typings/mocha/mocha.d.ts"/>
 var oauth = require('../index');
+var assert = require("assert");
 
 describe('OAuth 2.0', function(){
 
