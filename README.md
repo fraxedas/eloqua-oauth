@@ -1,6 +1,6 @@
 # Oauth 2.0 authentication
 [![Build Status](https://travis-ci.org/fraxedas/eloqua-oauth.svg)](https://travis-ci.org/fraxedas/eloqua-oauth)
-[![NPM](https://nodei.co/npm/eloqua-oauth.png)](https://npmjs.org/package/eloqua-oauth)
+[![NPM](https://nodei.co/npm/eloqua-oauth.png?mini=true)](https://npmjs.org/package/eloqua-oauth)
 
 # Eloqua configuration
 1. Get an eloqua account and create a provider: [Visit AppCloud docs!](http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#Developers/AppCloud/appcloud.htm%3FTocPath%3DAppCloud%2520Development%2520Framework%7C_____0)
