@@ -18,7 +18,7 @@ npm install eloqua-oauth --save
 ```
 
 # The oauth workflow
-1. Eloqua will call the enable url
+Eloqua will call the enable url
 ```
 var eloqua = require("eloqua-oauth");
 oauth.all("/oauth/:appId/:installId", function(req, res){
@@ -41,7 +41,7 @@ oauth.all("/oauth/:appId/:installId", function(req, res){
 });
 ```
 
-2. Handle the callback
+Handle the callback
 ```
 oauth.all("/callback", function(req, res){
     var installId = req.query.state;
