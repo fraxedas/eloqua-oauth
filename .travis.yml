@@ -5,7 +5,7 @@ deploy:
   provider: npm
   email: fraxedas@gmail.com
   api_key:
-    secure: l6c4zm3Tli6BwNjS/i4L5wDZyoq/rRs/bzb3VIkf/ydczTvWAy8EalX4XxlSGs9uMSLq6X4KF1N4Fy41HJHl8cWHIhrdFAJHZkzUFhbOAbVfCamcRgLg5su7x6CtX/ILLZh+uW6ZQIMvBQgCVoC5tvJwNo21eVGzgxDMgBwEK4k=
+    secure: vQI8S6n7xtOKUh8x4LLBylFioum480pFzagCVnPapIGu3N+Ijn2oqTDDA9ro9K7MTmR20bhnmqgtMxS19C4wl9mMgojbxYX/OTkE2XmdBy9xMpSj2C2zcXz3t4yqZQkKNF/N7TsOkQM8nHVTFxv6Y9ZZJmrBAnbnItPuibL/RmJruRCnFMz/NHkKqnZ06XsY7lFHW8CiTqlUwa+COP8z1fL+R8IhA9PRR13AWhvwM+YpmGbdih5zUJZw8hp22+S9syUItWGRBucVCrVuoYXsjM/WQyGqhW7bvdrvwhbF2PwR+vjQmhc754NmhvmK5s8jfgO9wVlrxVcu4cV0u8pW/lMP2dTwavlpFjNvniUD2xxN7aCMkr6yi2dwHTJ/gS1a6G+pKXp6RiZwH39Cp9HdoR7Qz28iuXbP6GeWh6/OL198TV3VL0I7hmksSxmhKBNHbSps1D2ryxkQyAm0wVDFZWgCevCKbco+eD5dYuMzVQr0RD+MHvb5evPTO9MZsxbHVw/KNrGeqlwHCxOIH3T3NL8Mo7bdGNJxi6KJqx9DgkFVjhkEB+/shQNetHKlTNAtf7D9z1eaRzUl0qANVEMJv8QagGXV0QayJeOq7CX6/Tj0Z+xxkw6Jq+q5cHNHATc0e4FyJcBNunDAmL7CKuttV4hvkhywp1P3wzUXn/6m9S8=
   on:
     tags: false
     repo: fraxedas/eloqua-oauth
