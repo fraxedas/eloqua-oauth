@@ -78,13 +78,64 @@ describe('OAuth 2.0', function(){
             var json = options.json;
             console.log(json);
             
-            it('should not be json', function(){
+            it('should be json', function(){
                 assert.ok(json);
             });
             
             it('should be have the proper values', function(){
                 assert.equal(json.grant_type, 'authorization_code');
                 assert.equal(json.code, 'authorization_code');
+                assert.equal(json.redirect_uri, 'redirect_uri');
+            });
+            
+        });
+    });
+    
+    describe('Refresh options', function(){
+
+        var options = oauth.refresh_request_options('client_id', 'client_secret', 'refresh_token', 'redirect_uri');
+         
+        describe('headers', function(){
+
+            var headers = options.headers;
+            
+            it('should contain authorization', function(){
+                assert.ok(headers.Authorization);
+            });
+            
+            it('should be basic', function(){
+                assert.ok(headers.Authorization.contains('Basic'));
+            });
+            
+        });
+        
+        describe('url', function(){
+
+            var url = options.url;
+            
+            it('should not be null', function(){
+                assert.ok(url);
+            });
+            
+            it('should be oauth', function(){
+                assert.ok(url.contains('oauth'));
+            });
+            
+        });
+        
+        describe('body', function(){
+
+            var json = options.json;
+            console.log(json);
+            
+            it('should be json', function(){
+                assert.ok(json);
+            });
+            
+            it('should be have the proper values', function(){
+                assert.equal(json.grant_type, 'refresh_token');
+                assert.equal(json.refresh_token, 'refresh_token');
+                assert.equal(json.scope, 'full');
                 assert.equal(json.redirect_uri, 'redirect_uri');
             });
             
