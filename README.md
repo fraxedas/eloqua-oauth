@@ -8,9 +8,10 @@
 * Enable Url: https://[app]/oauth/{appId}/{installId}?callback={CallbackUrl}
 * Status Url: https://[app]/app/status
 * Callback Url: https://[app]/callback
+3. Copy the app id and the app secret to your application
+
 [app] is the domain where you are hosting your application.
 The parameters in {} will get replaced in Eloqua before calling your application.
-3. Copy the app id and the app secret to your application
 
 # Installing the package via npm
 ```
@@ -18,18 +19,20 @@ npm install eloqua-oauth --save
 ```
 
 # The oauth workflow
-Eloqua will call the enable url with the installId, the appId and the eloqua callback
-You'll need to persist those values and redirect the user to the oauth url
-```
+Eloqua will call the enable url with the installId, the appId and the eloqua callback.  
+You'll need to persist those values and redirect the user to the oauth url.  
+```JavaScript
     var eloqua = require('eloqua-oauth');
     var uri = eloquaOauth.authorize(appId, 'https://[app]/callback', installId);
     res.redirect(uri);
 ```
 
-Handle the callback from eloqua with the grant token
+Handle the callback from eloqua with the grant token  
+```
 HTTP/1.1 302 Found
 Location: https://[app]/callback?code=SplxlOBeZQQYbYS6WxSbIA&state=xyz
 ```
+```JavaScript
     eloquaOauth.grant(appId, client_secret, code, 'https://[app]/callback', function (error, body) {
         if (error) {
             //Handle the error
