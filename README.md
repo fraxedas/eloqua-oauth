@@ -18,53 +18,24 @@ npm install eloqua-oauth --save
 ```
 
 # The oauth workflow
-Eloqua will call the enable url
+Eloqua will call the enable url with the installId, the appId and the eloqua callback
+You'll need to persist those values and redirect the user to the oauth url
 ```
-var eloqua = require("eloqua-oauth");
-oauth.all("/oauth/:appId/:installId", function(req, res){
-    var appId = req.params.appId;
-    var installId = req.params.installId;
-    var callback = req.query.callback;
-    
-    persist.setItem(installId,
-        {
-            appId: appId,
-            callback: callback
-        });                    
-    eloquaOauth.authorize({
-        client_id: appId,
-        redirect_uri: "https://" + req.get('host') + '/callback',
-        state: installId //Eloqua will send it back in the callback
-    }, function (uri) {
-        res.redirect(uri);
-    });
-});
+    var eloqua = require('eloqua-oauth');
+    var uri = eloquaOauth.authorize(appId, 'https://[app]/callback', installId);
+    res.redirect(uri);
 ```
 
-Handle the callback
+Handle the callback from eloqua with the grant token
+HTTP/1.1 302 Found
+Location: https://[app]/callback?code=SplxlOBeZQQYbYS6WxSbIA&state=xyz
 ```
-oauth.all("/callback", function(req, res){
-    var installId = req.query.state;
-    var item = persist.getItem(installId);
-    var appId = item.appId;
-    var callback = item.callback;
-    var client_secret = persist.getItem(appId);
-    var code = req.query.code;
-    
-    var authenticate = {
-        code: code,
-        redirect_uri: "https://" + req.get('host') + '/callback',
-        client_id: appId,
-        client_secret: client_secret
-    };
-    eloquaOauth.grant(authenticate, function (error, body) {
-        persist.setItem(appId + '_oauth', body);                    
+    eloquaOauth.grant(appId, client_secret, code, 'https://[app]/callback', function (error, body) {
         if (error) {
             //Handle the error
         }else{
-			//Finish the installtion in Eloqua
+			//Finish the installtion in Eloqua by redirecting to the callback in the previous step
             res.redirect(callback);
         }
     });
-});
 ```
