@@ -1,4 +1,4 @@
-# Oauth 2.0 authentication
+# Oauth 2.0 authentication and Oauth 1.0 verification with Eloqua
 [![Build Status](https://travis-ci.org/fraxedas/eloqua-oauth.svg)](https://travis-ci.org/fraxedas/eloqua-oauth)
 [![NPM](https://nodei.co/npm/eloqua-oauth.png?mini=true)](https://npmjs.org/package/eloqua-oauth)
 
@@ -18,12 +18,12 @@ npm install eloqua-oauth --save
 >[app] is the domain where you are hosting your application. e.g. https://fraxedas.herokuapp.com  
 >The parameters in {} will get replaced in Eloqua before calling your application.  
 
-## The oauth workflow
+## [The Oauth 2.0 workflow](http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#Developers/GettingStarted/Authentication/authenticate-using-oauth.htm)
 Eloqua will call the enable url replacing the values installId, appId and callbackUrl.  
 You'll need to get those values from the request uri, persist them and redirect the user to the oauth url.  
 ```JavaScript
     //Add the library
-    var eloqua = require('eloqua-oauth');
+    var eloqua = require('eloqua-oauth').authentication;
     
     //Get the parameters from the request uri
     var appId = req.params.appId;
@@ -57,4 +57,13 @@ Location: https://[app]/callback?code=SplxlOBeZQQYbYS6WxSbIA&state=xyz
             res.redirect(callback);
         }
     });
+```
+
+## [The Oauth 1.0 verification](http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#Developers/GettingStarted/Authentication/validating-a-call-signature.htm)
+Eloqua will call the application adding the oauth parameters to the url
+It is the app's responsibility to ensure the validity of all inbound calls 
+```JavaScript
+    var verification = require('eloqua-oauth').verification;
+    //Get the parameters from the uri
+    var valid = verification.verify(uri, method, client_id, client_secret);
 ```

@@ -1,5 +1,5 @@
 /// <reference path="../typings/mocha/mocha.d.ts"/>
-var oauth = require('../index');
+var authentication = require('../index').authentication;
 var assert = require("assert");
 
 String.prototype.contains = function(other){
@@ -10,7 +10,7 @@ describe('OAuth 2.0', function(){
 
     describe('Access header', function(){
 
-        var header = oauth.access_header('token');
+        var header = authentication.access_header('token');
         
         it('should contain authorization', function(){
             assert.ok(header.Authorization);
@@ -32,7 +32,7 @@ describe('OAuth 2.0', function(){
     
     describe('Generate oauth authorize uri', function(){
         
-        var uri = oauth.authorize_uri('client_id', 'redirect_uri', 'install_id');
+        var uri = authentication.authorize_uri('client_id', 'redirect_uri', 'install_id');
             
         it('should contain all parameters', function(){
             assert.ok(uri.contains('=client_id'));
@@ -43,7 +43,7 @@ describe('OAuth 2.0', function(){
     
     describe('Grant options', function(){
 
-        var options = oauth.grant_request_options('client_id', 'client_secret', 'authorization_code', 'redirect_uri');
+        var options = authentication.grant_request_options('client_id', 'client_secret', 'authorization_code', 'redirect_uri');
          
         describe('headers', function(){
 
@@ -93,7 +93,7 @@ describe('OAuth 2.0', function(){
     
     describe('Refresh options', function(){
 
-        var options = oauth.refresh_request_options('client_id', 'client_secret', 'refresh_token', 'redirect_uri');
+        var options = authentication.refresh_request_options('client_id', 'client_secret', 'refresh_token', 'redirect_uri');
          
         describe('headers', function(){
 
