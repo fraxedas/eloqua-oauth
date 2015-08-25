@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/fraxedas/eloqua-oauth.svg)](https://travis-ci.org/fraxedas/eloqua-oauth)
 [![NPM](https://nodei.co/npm/eloqua-oauth.png?mini=true)](https://npmjs.org/package/eloqua-oauth)
 [![Coverage Status](https://coveralls.io/repos/fraxedas/eloqua-oauth/badge.svg?branch=master&service=github)](https://coveralls.io/github/fraxedas/eloqua-oauth?branch=master)
+[![Dependency Status](https://david-dm.org/fraxedas/eloqua-oauth.svg)](https://david-dm.org/fraxedas/eloqua-oauth)
 
 ## Installing the package via npm
 ```
