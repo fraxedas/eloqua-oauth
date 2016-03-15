@@ -12,4 +12,4 @@ before_install:
  - "npm install istanbul -g"
  - "npm install coveralls -g"
 script: "mocha"
-after_script: "istanbul cover _mocha && grunt coveralls"
+after_script: "istanbul cover _mocha --report lcovonly -- -R spec && grunt coveralls"
