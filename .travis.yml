@@ -12,6 +12,5 @@ before_install:
  - "npm install istanbul -g"
  - "npm install mocha-cli -g"
  - "npm install grunt-cli -g"
- - "npm install coveralls -g"
 script: "mocha"
 after_script: "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && grunt coveralls"
