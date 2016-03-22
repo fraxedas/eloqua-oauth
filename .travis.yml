@@ -13,4 +13,4 @@ before_install:
  - "npm install mocha-cli -g"
  - "npm install grunt-cli -g"
 script: "mocha"
-after_script: "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && grunt coveralls"
+after_script: "npm run-script publish-cover"

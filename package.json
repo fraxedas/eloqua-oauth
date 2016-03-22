@@ -20,11 +20,12 @@
     "grunt-coveralls": "^1.0.0",
     "mocha": "^2.2.1",
     "mocha-lcov-reporter": "^1.1.0",
-    "rewire": "^2.5.1",
     "should": "^8.2.2"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+    "publish-cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && grunt coveralls"
   },
   "repository": {
     "type": "git",
