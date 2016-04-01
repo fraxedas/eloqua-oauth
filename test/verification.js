@@ -89,7 +89,7 @@ describe('OAuth 1.0', function(){
           assert.equal(signature, 'mMJF6gmS1ycofBcSdA3bvgiwYZU=');
         });
 
-        it('should verify the request in eloqua', function(){
+        it('should verify the request', function(){
           var signature = oauth10.signature(params, request, consumerSecret, tokenSecret);
           var signed = oauth10.sign(request, oauth, signature);
 
