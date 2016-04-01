@@ -27,6 +27,12 @@ describe('OAuth 1.0', function(){
           assert.equal(request.query.include_entities, 'true');
           assert.equal(request.method, 'POST');
         });
+        
+        it('should default to GET for the verb is none is provided', function(){
+          var request = oauth10.request('https://habana.io'); 
+
+          assert.equal(request.method, 'GET');
+        });
 
     });
 
