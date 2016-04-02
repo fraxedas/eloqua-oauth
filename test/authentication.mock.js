@@ -31,5 +31,23 @@ describe('Authentication', function() {
         });
 
     });
+    
+    describe('Grant token', function() {
+
+        it('should return an error when the request fails', function() {
+            authentication.grant('client_id', 'client_secret', 'authorization_code', 'https://login.eloqua.com/', function(error, body) {
+                assert.ok(body.refresh_token);
+                assert.ok(body.access_token);
+            });
+        });
+
+        it('should return the response when the request succeeds', function() {
+            authentication.refresh('client_id', 'client_secret', 'refresh_token', 'https://login.eloqua.com/', function(error, body) {
+                assert.ok(body.refresh_token);
+                assert.ok(body.access_token);
+            });
+        });
+
+    });
 
 });
