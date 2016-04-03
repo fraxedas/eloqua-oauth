@@ -3,8 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/fraxedas/eloqua-oauth/badge.svg?branch=master&service=github)](https://coveralls.io/github/fraxedas/eloqua-oauth?branch=master)
 [![Dependency Status](https://david-dm.org/fraxedas/eloqua-oauth.svg)](https://david-dm.org/fraxedas/eloqua-oauth)
 [![Code Climate](https://codeclimate.com/github/fraxedas/eloqua-oauth/badges/gpa.svg)](https://codeclimate.com/github/fraxedas/eloqua-oauth)
-
-[![NPM](https://nodei.co/npm/eloqua-oauth.png?mini=true)](https://npmjs.org/package/eloqua-oauth)
+[![Downloads](https://img.shields.io/npm/dm/eloqua-oauth.svg)](https://npmjs.org/package/eloqua-oauth)
 
 ## Installing the package via npm
 ```
