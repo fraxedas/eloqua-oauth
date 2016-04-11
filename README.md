@@ -18,24 +18,31 @@ npm install eloqua-oauth --save
   2.3 Callback Url: https://[app]/callback  
 3. Copy the app id and the app secret to your application  
 
->[app] is the domain where you are hosting your application. e.g. https://fraxedas.herokuapp.com  
+>[app] is the domain where you are hosting your application. e.g. https://eloqua-app.herokuapp.com  
 >The parameters in {} will get replaced in Eloqua before calling your application.  
 
 ## [The Oauth 2.0 workflow](http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#Developers/GettingStarted/Authentication/authenticate-using-oauth.htm)
 Eloqua will call the enable url replacing the values installId, appId and callbackUrl.  
 You'll need to get those values from the request uri, persist them and redirect the user to the oauth url.  
 ```JavaScript
-    //Add the library
-    var eloqua = require('eloqua-oauth').authentication;
-    
+//Add the library
+var eloqua = require('eloqua-oauth').authentication;
+
+oauth.post("/oauth/:appId/:installId", function(req, res){
     //Get the parameters from the request uri
     var appId = req.params.appId;
     var installId = req.params.installId;
     var callback = req.query.callback;
     
+    //Persist the installId, appId and callback
+    //The package 'node-persist' will get you up and running fast
+    ...  
+                        
     //Create the authorize uri and redirect the user
     var uri = eloqua.authorize(appId, 'https://[app]/callback', installId);
     res.redirect(uri);
+    res.redirect(uri);
+});    
 ```
 
 Handle the callback from eloqua with the grant token  
@@ -44,22 +51,24 @@ HTTP/1.1 302 Found
 Location: https://[app]/callback?code=SplxlOBeZQQYbYS6WxSbIA&state=xyz
 ```
 ```JavaScript
+oauth.all("/callback", function(req, res){
     //Get the parameters from the uri
     var installId = req.query.state;
     var code = req.query.code;
-    
-    //Load appId and client_secret based on the installId of the request
-    //The package 'node-persist' will get you up and running fast
-    
+
+    //Load appId, callback, and client_secret based on the installId of the request
+    ...
+
     //Call the grant endpoint in Eloqua       
     eloqua.grant(appId, client_secret, code, 'https://[app]/callback', function (error, body) {
         if (error) {
             //Handle the error
         }else{
-			//Finish the installtion in Eloqua by redirecting to the callback in the previous step
+            //Finish the installtion in Eloqua by redirecting to the callback in the previous step
             res.redirect(callback);
         }
     });
+});
 ```
 
 ## [The Oauth 1.0 verification](http://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/index.html#Developers/GettingStarted/Authentication/validating-a-call-signature.htm)
